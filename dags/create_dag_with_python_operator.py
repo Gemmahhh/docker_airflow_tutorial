@@ -21,7 +21,7 @@ def get_name_and_age(ti):
 
 with DAG(
     default_args= default_args,
-    dag_id = 'our_dag_with_python_operator_v05',
+    dag_id = 'our_dag_with_python_operator_v06',
     description= 'Our first dag using Python Operator',
     start_date= datetime(2025,4, 20),
     schedule_interval= '@daily'
