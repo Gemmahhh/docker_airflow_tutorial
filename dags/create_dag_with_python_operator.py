@@ -11,7 +11,7 @@ default_args ={
 def greet(age, ti):
     first_name = ti.xcom_pull(task_ids = 'get_name_and_age', key = 'first_name')
     last_name = ti.xcom_pull(task_ids = 'get_name_and_age', key = 'last_name')
-    last_name = ti.xcom_pull(task_ids = 'get_name_and_age', key = 'age')
+    age = ti.xcom_pull(task_ids = 'get_name_and_age', key = 'age')
     print("Hello World! My name is {first_name} {last_name}, and I am {age} years old")
 
 def get_name_and_age(ti):
