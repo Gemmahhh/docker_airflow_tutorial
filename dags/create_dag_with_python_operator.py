@@ -30,4 +30,4 @@ with DAG(
         task_id = 'get_name',
         python_callable= get_name
     )
-    task1
+    task2
