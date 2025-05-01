@@ -29,7 +29,7 @@ def hello_world_etl():
     def greet(firstname, lastname, age):
         print(f'Hello world, My name is {firstname} {lastname} and I am {age}')
 
-    name_dict = name()
+    name_dict = get_name()
     age = get_age()
     greet(firstname = name_dict['firstname'], 
          lastname = name_dict['lastname'], 
