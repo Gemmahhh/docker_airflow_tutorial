@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
 from airflow import DAG 
-from airflow.providers.postgres.operators.postgres import PostgresOperator
+#from airflow.providers.postgres.operators.postgres import PostgresOperator
+from airflow.providers.sql.operators.sql import SQLExecuteQueryOperator
 
 default_args ={
     'owner': 'Chiamaka',
@@ -14,7 +15,7 @@ with Dag(
     start_date= datetime(2025,5,2),
     schedule_interval="0 0 * * *"
 ) as dag:
-    task1 = PostgresOperator(
+    task1 = SQLExecuteQueryOperator(
         task_id="create_postgres_table",
         postgres_conn_id="postgres_localhost",
         sql = """
