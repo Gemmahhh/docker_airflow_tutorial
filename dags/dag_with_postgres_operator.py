@@ -31,9 +31,9 @@ with DAG(
     task2 = SQLExecuteQueryOperator(
         task_id="insert_into_table",
         conn_id="postgres_localhost",
-        sql=""""
+        sql="""
             insert into dag_runs(dt, dag_id) values ('{{ds}}', '{{dag.dag_id}}')
-        """"
+        """
     )
 
      task3 = SQLExecuteQueryOperator(
