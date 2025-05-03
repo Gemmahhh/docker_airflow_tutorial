@@ -11,7 +11,7 @@ default_args ={
 }
 
 with DAG(
-    dag_id="dag_with_postgres_operator_v6",
+    dag_id="dag_with_postgres_operator_v7",
     default_args = default_args,
     start_date= datetime(2025,5,2),
     schedule_interval="0 0 * * *"
@@ -27,4 +27,21 @@ with DAG(
             )
         """
     )
-    task1
+
+    task2 = SQLExecuteQueryOperator(
+        task_id="insert_into_table",
+        conn_id="postgres_localhost",
+        sql=""""
+            insert into dag_runs(dt, dag_id) values ('{{ds}}', '{{dag.dag_id}}')
+        """"
+    )
+
+     task3 = SQLExecuteQueryOperator(
+        task_id="delete_from_table",
+        conn_id="postgres_localhost",
+        sql=""""
+            delete from dag_runs where dt = '{{ds}}' and dag_id = '{{dag.dag_id}}'
+        """"
+    )
+
+    task1 >> task3 >> task2
