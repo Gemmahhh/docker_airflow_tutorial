@@ -18,7 +18,7 @@ with DAG(
 ) as dag:
     task1 = SQLExecuteQueryOperator(
         task_id="create_postgres_table",
-        postgres_conn_id="postgres_localhost",
+        conn_id="postgres_localhost",
         sql = """
             create table if not exists dag_runs(
                 dt date,
