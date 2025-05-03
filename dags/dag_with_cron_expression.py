@@ -9,11 +9,11 @@ default_args = {
 }
 
 with DAG(
-    dag_id = 'dag_with_cron_expression_v1',
+    dag_id = 'dag_with_cron_expression_v2',
     default_args= default_args,
     description='This is our first dag with cron expression',
     start_date=datetime(2025,5,1),
-    schedule_interval= '0 0 * * *',
+    schedule_interval= '0 3 * * 6,0,1',
     catchup= False
 ) as dag:
     task1 = BashOperator(
