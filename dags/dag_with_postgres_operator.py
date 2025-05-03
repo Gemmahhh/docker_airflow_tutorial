@@ -6,12 +6,12 @@ from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
 
 default_args ={
     'owner': 'Chiamaka',
-    'retries': 5,
+    'retries': 2,
     'retry_delay': timedelta(minutes=5)
 }
 
 with DAG(
-    dag_id="dag_with_postgres_operator_v2",
+    dag_id="dag_with_postgres_operator_v3",
     default_args = default_args,
     start_date= datetime(2025,5,2),
     schedule_interval="0 0 * * *"
