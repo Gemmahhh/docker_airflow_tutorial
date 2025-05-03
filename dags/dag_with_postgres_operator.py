@@ -10,7 +10,7 @@ default_args ={
     'retry_delay': timedelta(minutes=5)
 }
 
-with Dag(
+with DAG(
     dag_id="dag_with_postgres_operator_v1",
     default_args = default_args,
     start_date= datetime(2025,5,2),
