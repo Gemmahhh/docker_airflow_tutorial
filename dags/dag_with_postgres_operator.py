@@ -36,7 +36,7 @@ with DAG(
         """
     )
 
-     task3 = SQLExecuteQueryOperator(
+    task3 = SQLExecuteQueryOperator(
         task_id="delete_from_table",
         conn_id="postgres_localhost",
         sql=""""
