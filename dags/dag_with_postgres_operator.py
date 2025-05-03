@@ -39,9 +39,9 @@ with DAG(
     task3 = SQLExecuteQueryOperator(
         task_id="delete_from_table",
         conn_id="postgres_localhost",
-        sql=""""
+        sql="""
             delete from dag_runs where dt = '{{ds}}' and dag_id = '{{dag.dag_id}}'
-        """"
+        """
     )
 
     task1 >> task3 >> task2
