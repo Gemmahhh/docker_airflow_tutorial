@@ -1,7 +1,8 @@
 from datetime import datetime, timedelta
 from airflow import DAG 
 #from airflow.providers.postgres.operators.postgres import PostgresOperator
-from airflow.providers.sql.operators.sql import SQLExecuteQueryOperator
+from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
+#from airflow.providers.sql.operators.sql import SQLExecuteQueryOperator
 
 default_args ={
     'owner': 'Chiamaka',
