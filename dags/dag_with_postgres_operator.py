@@ -11,7 +11,7 @@ default_args ={
 }
 
 with DAG(
-    dag_id="dag_with_postgres_operator_v5",
+    dag_id="dag_with_postgres_operator_v6",
     default_args = default_args,
     start_date= datetime(2025,5,2),
     schedule_interval="0 0 * * *"
